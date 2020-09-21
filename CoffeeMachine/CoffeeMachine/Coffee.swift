@@ -33,6 +33,7 @@ class CoffeeMachine{
         }
     }
     var trash = 0
+    let trashCapacity = 60
     
     func addWater() -> String {
         water = 50
@@ -45,7 +46,7 @@ class CoffeeMachine{
         return "Beans \(coffeeBeans)"
     }
     func addMilk() -> String {
-          milk = 50
+          milk = 60
           print("Milk \(milk)")
           return "Milk \(milk)"
       }
@@ -55,62 +56,46 @@ class CoffeeMachine{
           return "Trash \(0)"
       }
 
-    func makeAmericano() -> String {
-        let americano = Drink.americano
-        if water < americano.waterNeeded {
-            print("Not enough water")
-            return "not enough water"
-        } else if coffeeBeans < americano.beansNeeded {
-            print("Not enough beans")
-            return "not enough beans"
-        } else if trash > 60 {
-            print("Clear trash")
-            return "Clear trash"
+    func makeDrink<T>(drink: T)-> String{
+        var someDrink = Drink.something
+        if drink as! CoffeeMachine.Drink == Drink.americano {
+            someDrink = Drink.americano
+        } else if drink as! CoffeeMachine.Drink == Drink.capuchino {
+            someDrink = Drink.capuchino
         }
-        water -= americano.waterNeeded
-        coffeeBeans -= americano.beansNeeded
-        trash += americano.beansNeeded
-        print("Americano, sir")
-        return "Americano, sir"
-    }
-    
-    func makeCapuchino() -> String {
-        let capuchino = Drink.capuchino
-        if milk < capuchino.milkNeeded {
-            print("Not enough milk")
-            return "not enough milk"
-        } else if coffeeBeans < capuchino.beansNeeded {
-            print("Not enough beans")
-            return "not enough beans"
-        } else if trash > 60 {
-            print("Clear trash")
-            return "Clear trash"
-        }
-        milk -= capuchino.milkNeeded
-        coffeeBeans -= capuchino.beansNeeded
-        trash += capuchino.beansNeeded
-        print("Capuchino, sir")
-        return "Capuchino, sir"
+        if milk < someDrink.milkNeeded { return "Not enough milk" }
+        if coffeeBeans < someDrink.beansNeeded {return "Not enough beans"}
+        if water < someDrink .waterNeeded {return "not enough water"}
+        if trash > trashCapacity {return "Clear trash"}
+        milk -= someDrink.milkNeeded
+        coffeeBeans -= someDrink.beansNeeded
+        water -= someDrink.waterNeeded
+        trash += someDrink.beansNeeded
+        
+        return "\(drink), sir"
     }
     
     enum Drink {
-        case americano, capuchino
+        case americano, capuchino, something
         var waterNeeded : Int {
             switch self {
             case .americano: return 20
             case .capuchino: return 0
+            case .something: return 0
             }
         }
         var beansNeeded : Int {
             switch self {
             case .americano: return 20
             case .capuchino: return 20
+            case .something: return 0
             }
         }
         var milkNeeded : Int {
             switch  self {
             case .americano: return 0
             case .capuchino: return 30
+            case .something: return 0
         }
     }
         
