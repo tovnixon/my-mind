@@ -7,7 +7,76 @@
 //
 
 import Foundation
-class CoffeeMachine{
+
+
+//enum CoffeeComponentsType {
+//    case water
+//    case milk
+//    case beans
+//}
+//
+//enum Drink{
+//    case ameriano
+//    case capuchino
+//}
+//
+//protocol Measurable {
+//    var value : Int { get }
+//}
+//
+//protocol CoffeeComponents {
+//    var type: CoffeeComponentsType{ get }
+//}
+//
+//protocol CoffeeMachineProtocol {
+//    func addComponents(_ components: CoffeeComponents) -> Bool
+//    func makeDrink(_ drink: Drink) -> String
+//}
+
+//class CoffeeMachine: CoffeeMachineProtocol,CoffeeComponents, Measurable {
+//    func addComponents(_ components: CoffeeComponents) -> Bool {
+//        <#code#>
+//    }
+//
+//    func makeDrink(_ drink: Drink) -> String {
+//        <#code#>
+//    }
+//
+//    var type: CoffeeComponentsType
+//
+//    var value: Int
+//}
+
+
+class CoffeeMachine {
+    enum Drink {
+        case americano, capuchino, something
+        var waterNeeded : Int {
+            switch self {
+            case .americano: return 20
+            case .capuchino: return 0
+            case .something: return 0
+            }
+        }
+        var beansNeeded : Int {
+            switch self {
+            case .americano: return 20
+            case .capuchino: return 20
+            case .something: return 0
+            }
+        }
+        var milkNeeded : Int {
+            switch  self {
+            case .americano: return 0
+            case .capuchino: return 30
+            case .something: return 0
+        }
+    }
+        
+        
+    }
+    
+    
     var water = 10 {
         didSet {
             if water <= 0 {
@@ -56,11 +125,11 @@ class CoffeeMachine{
           return "Trash \(0)"
       }
 
-    func makeDrink<T>(drink: T)-> String{
+    func makesomeDrink(drink: Drink)-> String{
         var someDrink = Drink.something
-        if drink as! CoffeeMachine.Drink == Drink.americano {
+        if drink  == Drink.americano {
             someDrink = Drink.americano
-        } else if drink as! CoffeeMachine.Drink == Drink.capuchino {
+        } else if drink  == Drink.capuchino {
             someDrink = Drink.capuchino
         }
         if milk < someDrink.milkNeeded { return "Not enough milk" }
@@ -71,36 +140,12 @@ class CoffeeMachine{
         coffeeBeans -= someDrink.beansNeeded
         water -= someDrink.waterNeeded
         trash += someDrink.beansNeeded
-        
+
         return "\(drink), sir"
     }
     
-    enum Drink {
-        case americano, capuchino, something
-        var waterNeeded : Int {
-            switch self {
-            case .americano: return 20
-            case .capuchino: return 0
-            case .something: return 0
-            }
-        }
-        var beansNeeded : Int {
-            switch self {
-            case .americano: return 20
-            case .capuchino: return 20
-            case .something: return 0
-            }
-        }
-        var milkNeeded : Int {
-            switch  self {
-            case .americano: return 0
-            case .capuchino: return 30
-            case .something: return 0
-        }
-    }
-        
-        
-    }
+    
 
 
 }
+

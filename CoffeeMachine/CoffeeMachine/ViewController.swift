@@ -20,11 +20,11 @@ let order = CoffeeMachine()
         
     }
     @IBAction func americanoButton(_ sender: UIButton) {
-        label.text = order.makeDrink(drink: CoffeeMachine.Drink.americano)
+        label.text = order.makesomeDrink(drink: CoffeeMachine.Drink.americano)
     }
     
     @IBAction func capuchinoButton(_ sender: UIButton) {
-        label.text = order.makeDrink(drink: CoffeeMachine.Drink.capuchino)
+        label.text = order.makesomeDrink(drink: CoffeeMachine.Drink.capuchino)
     }
     
     
