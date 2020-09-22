@@ -50,9 +50,6 @@ class MyCoffeeMachine : CoffeeMachineProtocol {
     
     
     func makeDrink(_ drink: Drink) -> String {
-        if(drink == Drink.ameriсano) {
-            print("amerikano")
-        }
         return ""
     }
     
