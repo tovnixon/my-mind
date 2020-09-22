@@ -14,11 +14,14 @@ enum CoffeeComponentsType{
     case water
     case milk
     case beans
+    
 }
 
 enum Drink{
     case ameriсano
     case capuchino
+    
+    
 }
 
 protocol Measurable {
@@ -34,46 +37,28 @@ protocol CoffeeMachineProtocol {
     func makeDrink(_ drink: Drink) -> String
 }
 
-struct MyCoffeeMachine: CoffeeMachineProtocol, CoffeeComponents, Measurable {
-   
-    enum Drink{
-        case americano
-        case capuchino
-        
-    var waterNeeded : Int {
-        switch self {
-        case .americano: return 20
-        case .capuchino: return 0
-      
-        }
-    }
-    var beansNeeded : Int {
-        switch self {
-        case .americano: return 20
-        case .capuchino: return 20
-   
-        }
-    }
-    var milkNeeded : Int {
-        switch  self {
-        case .americano: return 0
-        case .capuchino: return 30
-      
-    }
-}
-    
-    }
 
-    func addComponents(_ components: CoffeeComponents) -> Bool {
-        <#code#>
-    }
+
+
+class MyCoffeeMachine : CoffeeMachineProtocol {
+    
+    var initialMilkAmount = 50
+    var initialCoffeAmaount = 50
+    var initialWater =  50
+    
+    
+    
     
     func makeDrink(_ drink: Drink) -> String {
-        <#code#>
+        if(drink == Drink.ameriсano) {
+            print("amerikano")
+        }
+        return ""
     }
     
+    func addComponents(_ components: CoffeeComponents) -> Bool {
+        return false
+    }
+
     
-    var type: CoffeeComponentsType
-    
-    var value: Int
 }
