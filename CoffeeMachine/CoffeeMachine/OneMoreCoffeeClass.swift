@@ -13,7 +13,22 @@ import Foundation
  
  */
 
-class Components{
+enum MyCoffeeComponentType{
+    case water, milk, beans
+    var min: Int {return 20}
+}
+// у компонента есть тип и обьем
+class ComponentContain {
+    var type: MyCoffeeComponentType
+    var volume : Int
+    var minvol = 20
+    init(type: MyCoffeeComponentType, volume: Int) {
+        self.type = type
+        self.volume = volume
+    }
+}
+// все компоненты, которые используются в приготовлении напитка
+class AllComponents{
     
     var water: Int
     var beans: Int
@@ -24,54 +39,94 @@ class Components{
         self.milk = milk
     }
 }
-
+//у напитка есть имя и компоненты
 class myDrink{
     let name: String
-    var components: Components
-    init(name: String, components: Components) {
+    var allComponents: AllComponents
+    var components2 = [ComponentContain]()
+    init(name: String, allComponents: AllComponents) {
         self.name = name
-        self.components = components
+        self.allComponents = allComponents
     }
 }
 
 protocol CMachineProtocol {
     func letsMakeDrink(drink: myDrink)-> String
-    func addSomeComponent(some: Components)
+    func addSomeComponent(some: MyCoffeeComponentType)-> String
+ //   func addNewComponent<T>(some: T){}
+   func canMakeADrink(drink: myDrink)->String
+    func hasEnoughComponentOfType(type: MyCoffeeComponentType)-> Bool
     func refreshTrash()-> String
 }
 
 class CMachine: CMachineProtocol {
    
+  // изначально кофе машина не заполнена
+    var beansRawValue = 0
+    var milkRawValue = 0
+    var waterRawValue = 0
+    let valueForAdd = 100
+    var components2 = [ComponentContain]()
+  //  var allComponents: AllComponents
     
-    var components: Components
     var trash = 0
     var trashCapacity = 50
-    init(components: Components) {
-        self.components = components
+//    init(allComponents: AllComponents) {
+//        self.allComponents = allComponents
+//    }
+//
+    
+    
+    func addSomeComponent(some: MyCoffeeComponentType)-> String{
+        switch some {
+        case .beans: beansRawValue += valueForAdd
+        case .milk: milkRawValue += valueForAdd
+        case .water: waterRawValue += valueForAdd
+        }
+        return "Component \(some) added"
+    }
+    
+    func hasEnoughComponentOfType(type: MyCoffeeComponentType)-> Bool{
+//        for comp in components2{
+//            if comp < comp.minvol {}
+//        }
+        if milkRawValue < type.min { return false }
+        return true
+    }
+    
+    func canMakeADrink(drink: myDrink)->String{
+        for compon in components2{
+            for c in drink.components2{
+                if compon < c {
+                    
+                }
+            }
+        }
+        if beansRawValue < drink.allComponents.beans { return "Not enough beans" }
+        if waterRawValue < drink.allComponents.water {return "Not enough water"}
+        if milkRawValue < drink.allComponents.milk {return "Not enough milk"}
+        if trash > trashCapacity {return "Refresh trash"}
     }
     
     func letsMakeDrink(drink: myDrink)-> String{
-        if components.beans < drink.components.beans { return "Not enough beans" }
-        if components.water < drink.components.water {return "Not enough water"}
-        if components.milk < drink.components.milk {return "Not enough milk"}
-        if trash > trashCapacity {return "Refresh trash"}
-        components.beans -= drink.components.beans
-        components.water -= drink.components.water
-        components.milk -= drink.components.milk
-        trash += drink.components.beans
+        
+        beansRawValue -= drink.allComponents.beans
+        waterRawValue -= drink.allComponents.water
+        milkRawValue -= drink.allComponents.milk
+        trash += drink.allComponents.beans
         return "Here is your \(drink.name), bro"
-    }
-    
-    func addSomeComponent(some: Components){
     }
     
     func refreshTrash()-> String {
         trash -= trash
         return "Value of trash: \(trash)"
     }
+    
 }
 
 
-let NCmachine = CMachine(components: Components(water: 100, beans: 100, milk: 100))
-let amer = myDrink(name: "americano", components: Components(water: 20, beans: 20, milk: 0))
-
+let NCMach = CMachine()
+let res = NCMach.hasEnoughComponentOfType(type: MyCoffeeComponentType)
+// let NCMach = CMachine(allComponents: AllComponents(water: 100, beans: 100, milk: 100))
+let amer = myDrink(name: "americano", allComponents: AllComponents(water: 20, beans: 20, milk: 0))
+let capuch = myDrink(name: "capuchino", allComponents: AllComponents(water: 0, beans: 20, milk: 20))
