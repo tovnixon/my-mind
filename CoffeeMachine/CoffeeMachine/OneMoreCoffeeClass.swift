@@ -34,7 +34,7 @@ class ComponentContain {
         volume -= extraVol
     }
 }
-// все компоненты, которые используются в приготовлении напитка
+
 //у напитка есть имя и компоненты
 class myDrink{
     let name: String
@@ -60,8 +60,6 @@ class CMachine: CMachineProtocol {
    
     let valueForAdd = 100
     var availableComponents = [ComponentContain]()
-
-    
     var trash = 0
     var trashCapacity = 50
 
@@ -86,8 +84,9 @@ class CMachine: CMachineProtocol {
         
         for components in availableComponents {
             if components.volume < type.minvol {return false}
-            return true
+          
         }
+        return true
     }
     
     
@@ -108,10 +107,12 @@ class CMachine: CMachineProtocol {
     func letsMakeDrink(drink: myDrink)-> String{
         for component in availableComponents{
             for c in drink.components{
-                component.removeVolume(extraVol: c )
+                component.removeVolume(extraVol: c.volume)
             }
         }
-        trash += drink.components[ComponentContain.init(type: .beans, vol)]
+      
+        let component = drink.components.filter{$0.type == .beans}.first
+        trash += component!.volume
         
         return "Here is your \(drink.name), bro"
     }
@@ -125,9 +126,6 @@ class CMachine: CMachineProtocol {
 
 
 let NCMach = CMachine()
-
-// let NCMach = CMachine(allComponents: AllComponents(water: 100, beans: 100, milk: 100))
-
 let espr =  myDrink(name: "esp", components: [ComponentContain.init(type: .milk, volume: 20),ComponentContain.init(type: .beans, volume: 30)])
 
 
