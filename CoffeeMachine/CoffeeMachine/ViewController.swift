@@ -14,8 +14,9 @@ let order = CoffeeMachine()
     
     let machine = CMachine()
     
-    let latte = myDrink(name: "latte", components: [ComponentContain(type: .beans, volume: 30), ComponentContain(type: .milk, volume: 30)])
-    let capuch = myDrink(name: "capuchino", components: [ComponentContain(type: .beans, volume: 25), ComponentContain(type: .milk, volume: 10), ComponentContain(type: .water, volume: 40)])
+
+    let capuchino = myDrink(name: "capuchino", components: [ComponentContain(type: .beans, volume: 25), ComponentContain(type: .milk, volume: 10), ComponentContain(type: .water, volume: 40)])
+    let americano = myDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 20), ComponentContain(type: .water, volume: 25)])
     
     @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
@@ -29,30 +30,29 @@ let order = CoffeeMachine()
         
     }
     @IBAction func americanoButton(_ sender: UIButton) {
-        machine.canMakeADrink(capuch)
+        label.text = machine.letsMakeDrink(americano)
 //        label.text = order.makesomeDrink(drink: CoffeeMachine.Drink.americano)
     }
     
     @IBAction func capuchinoButton(_ sender: UIButton) {
-        machine.letsMakeDrink(capuch)
-     //   label.text = order.makesomeDrink(drink: CoffeeMachine.Drink.capuchino)
+        label.text = machine.letsMakeDrink(capuchino)
     }
     
     
     @IBAction func addWaterButton(_ sender: UIButton) {
-        label.text = order.addWater()
+        label.text = machine.message
     }
     
     @IBAction func addMilkButton(_ sender: UIButton) {
-        label.text = order.addMilk()
+        label.text = machine.addSomeComponent(.milk)
     }
     
     @IBAction func addBeansButton(_ sender: UIButton) {
-        label.text = order.addBeans()
+        label.text = machine.addSomeComponent(.beans)
     }
     
     @IBAction func removeTrashButton(_ sender: UIButton) {
-        label.text = order.clearTrash()
+        label.text = machine.refreshTrash()
         }
     
     

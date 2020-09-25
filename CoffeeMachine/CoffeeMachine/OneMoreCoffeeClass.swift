@@ -48,7 +48,7 @@ protocol CMachineProtocol {
     func letsMakeDrink(_ drink: myDrink)-> String
     func addSomeComponent(_ some: MyCoffeeComponentType)-> String
     //   func addNewComponent<T>(some: T){}
-    func canMakeADrink(_ drink: myDrink)-> String
+    func canMakeADrink(_ drink: myDrink)-> Bool
     func hasEnoughComponentOfType(_ type: ComponentContain)-> Bool
     func refreshTrash()-> String
 }
@@ -60,6 +60,7 @@ class CMachine: CMachineProtocol {
     var availableComponents = [ComponentContain]()
     var trash = 0
     var trashCapacity = 50
+    var message = ""
     
  private func getComponentByType(_ type: MyCoffeeComponentType)-> ComponentContain? {
         for component in availableComponents {
@@ -89,29 +90,33 @@ class CMachine: CMachineProtocol {
     }
     
     
-    func canMakeADrink(_ drink: myDrink)-> String {
+    func canMakeADrink(_ drink: myDrink)-> Bool {
         
         for drinkComponent in drink.components {
             let machineComponent = getComponentByType(drinkComponent.type)
             if machineComponent!.volume < drinkComponent.volume {
-                return "Not enough \(machineComponent!)"
+                message = "Not enough \(machineComponent!.type)"
+                return false
             }
         }
         if trash > trashCapacity {
-            return "Refresh trash"
+            message = "Refresh trash"
+            return false
         }
-        return "Let`s make a drink!"
+        message = "Let`s make a drink!"
+        return true
     }
     
     
     
     func letsMakeDrink(_ drink: myDrink)-> String {
-        
+        if canMakeADrink(drink) {
         for drinkComponent in drink.components {
             let machineComponent = getComponentByType(drinkComponent.type)
             machineComponent!.removeVolume(extraVol: drinkComponent.volume)
+            print(machineComponent?.type, machineComponent?.volume)
         }
-        
+        }
         let component = drink.components.filter{$0.type == .beans}.first
         trash += component!.volume
         
@@ -125,10 +130,5 @@ class CMachine: CMachineProtocol {
     
 }
 
-
-
-
-
-let americano = myDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 20), ComponentContain(type: .water, volume: 20)])
 
 
