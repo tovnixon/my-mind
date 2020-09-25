@@ -10,12 +10,11 @@ import Foundation
 /* кофе машина содержит  воду, кофе и молоко
  напиток содержит кофе, воду и молоко
  кофе машина умеет готовить напиток
- 
  */
 
-enum MyCoffeeComponentType{
+enum MyCoffeeComponentType {
     case water, milk, beans
-   
+    
 }
 // у компонента есть тип и обьем
 class ComponentContain {
@@ -36,94 +35,96 @@ class ComponentContain {
 }
 
 //у напитка есть имя и компоненты
-class myDrink{
+class myDrink {
     let name: String
     var components = [ComponentContain]()
     init(name: String, components : [ComponentContain]) {
         self.name = name
-       self.components = components
+        self.components = components
     }
 }
 
 protocol CMachineProtocol {
-    func letsMakeDrink(drink: myDrink)-> String
-    func addSomeComponent(some: MyCoffeeComponentType)-> String
- //   func addNewComponent<T>(some: T){}
-   func canMakeADrink(drink: myDrink)->String
-    func hasEnoughComponentOfType(type: ComponentContain)-> Bool
+    func letsMakeDrink(_ drink: myDrink)-> String
+    func addSomeComponent(_ some: MyCoffeeComponentType)-> String
+    //   func addNewComponent<T>(some: T){}
+    func canMakeADrink(_ drink: myDrink)-> String
+    func hasEnoughComponentOfType(_ type: ComponentContain)-> Bool
     func refreshTrash()-> String
 }
 
 class CMachine: CMachineProtocol {
-   
-  // изначально кофе машина не заполнена
-   
+    
+    // изначально кофе машина не заполнена
     let valueForAdd = 100
     var availableComponents = [ComponentContain]()
     var trash = 0
     var trashCapacity = 50
-
-    private func getComponentByType(_ type: MyCoffeeComponentType) -> ComponentContain? {
-       for component in availableComponents {
-        if component.type == type {
-           return component
-          }
+    
+    private func getComponentByType(_ type: MyCoffeeComponentType)-> ComponentContain? {
+        for component in availableComponents {
+            if component.type == type {
+                return component
+            }
         }
-      return nil
+        return nil
     }
     
     
-    func addSomeComponent(some: MyCoffeeComponentType)-> String{
+    func addSomeComponent(_ some: MyCoffeeComponentType)-> String {
         let component : ComponentContain = getComponentByType(some)!
         component.addVolume(extraVol: valueForAdd)
         
         return "Component \(some) added"
     }
     
-    func hasEnoughComponentOfType(type: ComponentContain)-> Bool{
+    func hasEnoughComponentOfType(_ type: ComponentContain)-> Bool {
         
         for components in availableComponents {
-            if components.volume < type.minvol {return false}
-          
+            if components.volume < type.minvol {
+                return false
+            }
         }
         return true
     }
     
     
-    func canMakeADrink(drink: myDrink)->String{
+    func canMakeADrink(_ drink: myDrink)-> String {
         print("hello")
         print(availableComponents.count)
         for c in drink.components {
             print("outer loop, component \(c.type) \(c.volume)")
             for component in availableComponents {
-               print("inner loop, component \(component.type) \(component.volume)")
+                print("inner loop, component \(component.type) \(component.volume)")
                 if c.type == component.type {
-print("comparint component.volume =  \(component.type) with c.volume = \(c.type)")
-                if component.volume < c.volume {
-                    return "Not enough \(component)"
+                    print("comparint component.volume =  \(component.type) with c.volume = \(c.type)")
+                    if component.volume < c.volume {
+                        return "Not enough \(component)"
+                    }
                 }
+                if trash > trashCapacity {
+                    return "Refresh trash"
                 }
-                if trash > trashCapacity {return "Refresh trash"}
             }
         }
         return "Let`s make a drink!"
-        }
-        
+    }
     
     
-    func letsMakeDrink(drink: myDrink)-> String{
+    
+    func letsMakeDrink(_ drink: myDrink)-> String {
         print("hello")
-        for c in drink.components{
+        for c in drink.components {
             print("outer loop, component \(c.type)")
             for component in availableComponents {
-                if c.type == component.type{
-                print("inner loop, component \(component.type)")
-                print("component remove volume: c. volume \(component.type) \(component.volume) remove \(c.type) \(c.volume)")
-                component.removeVolume(extraVol: c.volume)
-            }
+                if c.type == component.type {
+                    print("inner loop, component \(component.type)")
+                    print("component remove volume: c. volume \(component.type) \(component.volume) remove \(c.type) \(c.volume)")
+                    component.removeVolume(extraVol: c.volume)
+                }
             }
         }
-      
+        
         let component = drink.components.filter{$0.type == .beans}.first
         trash += component!.volume
         
@@ -140,6 +141,7 @@ print("comparint component.volume =  \(component.type) with c.volume = \(c.type)
 
 
 
-let espr =  myDrink(name: "esp", components: [ComponentContain.init(type: .milk, volume: 20),ComponentContain.init(type: .beans, volume: 30)])
+
+let americano = myDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 20), ComponentContain(type: .water, volume: 20)])
 
 
