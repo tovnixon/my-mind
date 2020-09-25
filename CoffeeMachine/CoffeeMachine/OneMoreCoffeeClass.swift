@@ -14,6 +14,7 @@ import Foundation
 
 enum MyCoffeeComponentType {
     case water, milk, beans
+    case something
     
 }
 // у компонента есть тип и обьем
@@ -45,12 +46,12 @@ class myDrink {
 }
 
 protocol CMachineProtocol {
-    func letsMakeDrink(_ drink: myDrink)-> String
-    func addSomeComponent(_ some: MyCoffeeComponentType)-> String
+    func letsMakeDrink(_ drink: myDrink) -> String
+    func addSomeComponent(_ some: MyCoffeeComponentType) -> String
     //   func addNewComponent<T>(some: T){}
-    func canMakeADrink(_ drink: myDrink)-> Bool
-    func hasEnoughComponentOfType(_ type: ComponentContain)-> Bool
-    func refreshTrash()-> String
+    func canMakeADrink(_ drink: myDrink) -> Bool
+    func hasEnoughComponentOfType(_ type: ComponentContain) -> Bool
+    func refreshTrash() -> String
 }
 
 class CMachine: CMachineProtocol {
@@ -62,7 +63,7 @@ class CMachine: CMachineProtocol {
     var trashCapacity = 50
     var message = ""
     
-    private func getComponentByType(_ type: MyCoffeeComponentType)-> ComponentContain? {
+    private func getComponentByType(_ type: MyCoffeeComponentType) -> ComponentContain? {
         for component in availableComponents {
             if component.type == type {
                 return component
@@ -72,14 +73,14 @@ class CMachine: CMachineProtocol {
     }
     
     
-    func addSomeComponent(_ some: MyCoffeeComponentType)-> String {
-        let component : ComponentContain = getComponentByType(some)!
+    func addSomeComponent(_ some: MyCoffeeComponentType) -> String {
+        let component : ComponentContain = getComponentByType(some) ?? ComponentContain(type: .something, volume: 0)
         component.addVolume(extraVol: valueForAdd)
         
         return "Component \(some) added"
     }
     
-    func hasEnoughComponentOfType(_ type: ComponentContain)-> Bool {
+    func hasEnoughComponentOfType(_ type: ComponentContain) -> Bool {
         
         for components in availableComponents {
             if components.volume < type.minvol {
@@ -90,12 +91,12 @@ class CMachine: CMachineProtocol {
     }
     
     
-    func canMakeADrink(_ drink: myDrink)-> Bool {
+    func canMakeADrink(_ drink: myDrink) -> Bool {
         
         for drinkComponent in drink.components {
             let machineComponent = getComponentByType(drinkComponent.type)
-            if machineComponent!.volume < drinkComponent.volume {
-                message = "Not enough \(machineComponent!.type)"
+            if machineComponent?.volume ?? 0 < drinkComponent.volume {
+                message = "Not enough \(String(describing: machineComponent?.type))"
                 return false
             }
         }
@@ -109,21 +110,20 @@ class CMachine: CMachineProtocol {
     
     
     
-    func letsMakeDrink(_ drink: myDrink)-> String {
+    func letsMakeDrink(_ drink: myDrink) -> String {
         if canMakeADrink(drink) {
             for drinkComponent in drink.components {
                 let machineComponent = getComponentByType(drinkComponent.type)
-                machineComponent!.removeVolume(extraVol: drinkComponent.volume)
-                
+                machineComponent?.removeVolume(extraVol: drinkComponent.volume)
             }
         }
         let component = drink.components.filter{$0.type == .beans}.first
-        trash += component!.volume
+        trash += component?.volume ?? 0
         
         return "Here is your \(drink.name), bro"
     }
     
-    func refreshTrash()-> String {
+    func refreshTrash() -> String {
         trash -= trash
         return "Value of trash: \(trash)"
     }
