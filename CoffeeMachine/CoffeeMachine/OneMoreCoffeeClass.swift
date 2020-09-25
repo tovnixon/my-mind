@@ -91,10 +91,17 @@ class CMachine: CMachineProtocol {
     
     
     func canMakeADrink(drink: myDrink)->String{
-        for component in availableComponents {
-            for c in drink.components {
+        print("hello")
+        print(availableComponents.count)
+        for c in drink.components {
+            print("outer loop, component \(c.type) \(c.volume)")
+            for component in availableComponents {
+               print("inner loop, component \(component.type) \(component.volume)")
+                if c.type == component.type {
+print("comparint component.volume =  \(component.type) with c.volume = \(c.type)")
                 if component.volume < c.volume {
                     return "Not enough \(component)"
+                }
                 }
                 if trash > trashCapacity {return "Refresh trash"}
             }
@@ -105,9 +112,15 @@ class CMachine: CMachineProtocol {
     
     
     func letsMakeDrink(drink: myDrink)-> String{
-        for component in availableComponents{
-            for c in drink.components{
+        print("hello")
+        for c in drink.components{
+            print("outer loop, component \(c.type)")
+            for component in availableComponents {
+                if c.type == component.type{
+                print("inner loop, component \(component.type)")
+                print("component remove volume: c. volume \(component.type) \(component.volume) remove \(c.type) \(c.volume)")
                 component.removeVolume(extraVol: c.volume)
+            }
             }
         }
       
@@ -125,7 +138,8 @@ class CMachine: CMachineProtocol {
 }
 
 
-let NCMach = CMachine()
+
+
 let espr =  myDrink(name: "esp", components: [ComponentContain.init(type: .milk, volume: 20),ComponentContain.init(type: .beans, volume: 30)])
 
 
