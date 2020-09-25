@@ -14,6 +14,8 @@
 		CA5D1D1C2500171E000B4EB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA5D1D1B2500171E000B4EB3 /* Assets.xcassets */; };
 		CA5D1D1F2500171E000B4EB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA5D1D1D2500171E000B4EB3 /* LaunchScreen.storyboard */; };
 		CA5D1D2725002271000B4EB3 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5D1D2625002271000B4EB3 /* Coffee.swift */; };
+		CA606C68251A650200E51D39 /* OneMoreCoffeeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA606C67251A650200E51D39 /* OneMoreCoffeeClass.swift */; };
+		CA6A71202519FCA600742E2E /* NewCoffeeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A711F2519FCA600742E2E /* NewCoffeeClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		CA5D1D1E2500171E000B4EB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA5D1D202500171E000B4EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA5D1D2625002271000B4EB3 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		CA606C67251A650200E51D39 /* OneMoreCoffeeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMoreCoffeeClass.swift; sourceTree = "<group>"; };
+		CA6A711F2519FCA600742E2E /* NewCoffeeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCoffeeClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				CA5D1D1425001715000B4EB3 /* SceneDelegate.swift */,
 				CA5D1D1625001715000B4EB3 /* ViewController.swift */,
 				CA5D1D2625002271000B4EB3 /* Coffee.swift */,
+				CA6A711F2519FCA600742E2E /* NewCoffeeClass.swift */,
+				CA606C67251A650200E51D39 /* OneMoreCoffeeClass.swift */,
 				CA5D1D1825001715000B4EB3 /* Main.storyboard */,
 				CA5D1D1B2500171E000B4EB3 /* Assets.xcassets */,
 				CA5D1D1D2500171E000B4EB3 /* LaunchScreen.storyboard */,
@@ -143,8 +149,10 @@
 			files = (
 				CA5D1D1725001715000B4EB3 /* ViewController.swift in Sources */,
 				CA5D1D1325001715000B4EB3 /* AppDelegate.swift in Sources */,
+				CA606C68251A650200E51D39 /* OneMoreCoffeeClass.swift in Sources */,
 				CA5D1D1525001715000B4EB3 /* SceneDelegate.swift in Sources */,
 				CA5D1D2725002271000B4EB3 /* Coffee.swift in Sources */,
+				CA6A71202519FCA600742E2E /* NewCoffeeClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
