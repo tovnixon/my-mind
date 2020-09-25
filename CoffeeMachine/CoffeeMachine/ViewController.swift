@@ -21,7 +21,7 @@ let order = CoffeeMachine()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+    
   machine.availableComponents.append(ComponentContain(type: .beans, volume: 100))
    machine.availableComponents.append(ComponentContain(type: .milk, volume: 100))
         machine.availableComponents.append(ComponentContain(type: .water, volume: 100))
@@ -29,12 +29,12 @@ let order = CoffeeMachine()
         
     }
     @IBAction func americanoButton(_ sender: UIButton) {
-        machine.canMakeADrink(drink: capuch)
+        machine.canMakeADrink(capuch)
 //        label.text = order.makesomeDrink(drink: CoffeeMachine.Drink.americano)
     }
     
     @IBAction func capuchinoButton(_ sender: UIButton) {
-        machine.letsMakeDrink(drink: capuch)
+        machine.letsMakeDrink(capuch)
      //   label.text = order.makesomeDrink(drink: CoffeeMachine.Drink.capuchino)
     }
     

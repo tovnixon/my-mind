@@ -26,10 +26,10 @@ class ComponentContain {
         self.volume = volume
     }
     
-    func addVolume(extraVol: Int){
+    func addVolume(extraVol: Int) {
         volume += extraVol
     }
-    func removeVolume(extraVol: Int){
+    func removeVolume(extraVol: Int) {
         volume -= extraVol
     }
 }
@@ -61,7 +61,7 @@ class CMachine: CMachineProtocol {
     var trash = 0
     var trashCapacity = 50
     
-    private func getComponentByType(_ type: MyCoffeeComponentType)-> ComponentContain? {
+ private func getComponentByType(_ type: MyCoffeeComponentType)-> ComponentContain? {
         for component in availableComponents {
             if component.type == type {
                 return component
@@ -90,22 +90,15 @@ class CMachine: CMachineProtocol {
     
     
     func canMakeADrink(_ drink: myDrink)-> String {
-        print("hello")
-        print(availableComponents.count)
-        for c in drink.components {
-            print("outer loop, component \(c.type) \(c.volume)")
-            for component in availableComponents {
-                print("inner loop, component \(component.type) \(component.volume)")
-                if c.type == component.type {
-                    print("comparint component.volume =  \(component.type) with c.volume = \(c.type)")
-                    if component.volume < c.volume {
-                        return "Not enough \(component)"
-                    }
-                }
-                if trash > trashCapacity {
-                    return "Refresh trash"
-                }
+        
+        for drinkComponent in drink.components {
+            let machineComponent = getComponentByType(drinkComponent.type)
+            if machineComponent!.volume < drinkComponent.volume {
+                return "Not enough \(machineComponent!)"
             }
+        }
+        if trash > trashCapacity {
+            return "Refresh trash"
         }
         return "Let`s make a drink!"
     }
@@ -113,16 +106,10 @@ class CMachine: CMachineProtocol {
     
     
     func letsMakeDrink(_ drink: myDrink)-> String {
-        print("hello")
-        for c in drink.components {
-            print("outer loop, component \(c.type)")
-            for component in availableComponents {
-                if c.type == component.type {
-                    print("inner loop, component \(component.type)")
-                    print("component remove volume: c. volume \(component.type) \(component.volume) remove \(c.type) \(c.volume)")
-                    component.removeVolume(extraVol: c.volume)
-                }
-            }
+        
+        for drinkComponent in drink.components {
+            let machineComponent = getComponentByType(drinkComponent.type)
+            machineComponent!.removeVolume(extraVol: drinkComponent.volume)
         }
         
         let component = drink.components.filter{$0.type == .beans}.first
