@@ -62,7 +62,7 @@ class CMachine: CMachineProtocol {
     var trashCapacity = 50
     var message = ""
     
- private func getComponentByType(_ type: MyCoffeeComponentType)-> ComponentContain? {
+    private func getComponentByType(_ type: MyCoffeeComponentType)-> ComponentContain? {
         for component in availableComponents {
             if component.type == type {
                 return component
@@ -111,11 +111,11 @@ class CMachine: CMachineProtocol {
     
     func letsMakeDrink(_ drink: myDrink)-> String {
         if canMakeADrink(drink) {
-        for drinkComponent in drink.components {
-            let machineComponent = getComponentByType(drinkComponent.type)
-            machineComponent!.removeVolume(extraVol: drinkComponent.volume)
-            print(machineComponent?.type, machineComponent?.volume)
-        }
+            for drinkComponent in drink.components {
+                let machineComponent = getComponentByType(drinkComponent.type)
+                machineComponent!.removeVolume(extraVol: drinkComponent.volume)
+                
+            }
         }
         let component = drink.components.filter{$0.type == .beans}.first
         trash += component!.volume
