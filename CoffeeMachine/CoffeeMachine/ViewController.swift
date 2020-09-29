@@ -45,6 +45,7 @@ class ViewController: UIViewController {
     
     @IBAction func addMilkButton(_ sender: UIButton) {
         label.text = machine.addSomeComponent(.milk)
+        label.text = machine.message
     }
     
     @IBAction func addBeansButton(_ sender: UIButton) {
