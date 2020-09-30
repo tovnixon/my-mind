@@ -15,6 +15,7 @@
 		CA5D1D1F2500171E000B4EB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA5D1D1D2500171E000B4EB3 /* LaunchScreen.storyboard */; };
 		CA5D1D2725002271000B4EB3 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5D1D2625002271000B4EB3 /* Coffee.swift */; };
 		CA606C68251A650200E51D39 /* OneMoreCoffeeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA606C67251A650200E51D39 /* OneMoreCoffeeClass.swift */; };
+		CAFDC2B52524984E00E21521 /* VolumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFDC2B42524984E00E21521 /* VolumeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CA5D1D202500171E000B4EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA5D1D2625002271000B4EB3 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		CA606C67251A650200E51D39 /* OneMoreCoffeeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMoreCoffeeClass.swift; sourceTree = "<group>"; };
+		CAFDC2B42524984E00E21521 /* VolumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				CA5D1D1625001715000B4EB3 /* ViewController.swift */,
 				CA5D1D2625002271000B4EB3 /* Coffee.swift */,
 				CA606C67251A650200E51D39 /* OneMoreCoffeeClass.swift */,
+				CAFDC2B42524984E00E21521 /* VolumeViewController.swift */,
 				CA5D1D1825001715000B4EB3 /* Main.storyboard */,
 				CA5D1D1B2500171E000B4EB3 /* Assets.xcassets */,
 				CA5D1D1D2500171E000B4EB3 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			files = (
 				CA5D1D1725001715000B4EB3 /* ViewController.swift in Sources */,
 				CA5D1D1325001715000B4EB3 /* AppDelegate.swift in Sources */,
+				CAFDC2B52524984E00E21521 /* VolumeViewController.swift in Sources */,
 				CA606C68251A650200E51D39 /* OneMoreCoffeeClass.swift in Sources */,
 				CA5D1D1525001715000B4EB3 /* SceneDelegate.swift in Sources */,
 				CA5D1D2725002271000B4EB3 /* Coffee.swift in Sources */,

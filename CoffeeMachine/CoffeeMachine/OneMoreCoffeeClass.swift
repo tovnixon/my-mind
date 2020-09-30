@@ -61,7 +61,6 @@ class CMachine: CMachineProtocol {
     var trash = 0
     var trashCapacity = 50
     var message = ""
-    var testComponent : ComponentContain? = nil
     
     private func getComponentByType(_ type: MyCoffeeComponentType) -> ComponentContain? {
         for component in availableComponents {
@@ -124,7 +123,7 @@ class CMachine: CMachineProtocol {
     
     func refreshTrash() -> Int {
         let value = trash - trash
-        message = "Value of trash: \(trash)"
+        message = "Value of trash: \(value)"
         return value
     }
     
