@@ -11,6 +11,7 @@ import UIKit
 class VolumeViewController: UIViewController {
 let machine = CMachine()
     
+    @IBOutlet weak var trashOutlet: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +21,6 @@ let machine = CMachine()
 
     @IBAction func waterSlider(_ sender: UISlider) {
         // issue with finding current value
-
         sender.maximumValue = Float(machine.valueForAdd)
         let currentValue = machine.getComponentByType(.water)?.minvol
         sender.value = Float(currentValue!)
@@ -31,9 +31,13 @@ let machine = CMachine()
     }
     @IBAction func milkSlider(_ sender: UISlider) {
     }
+ 
     @IBAction func trashSlider(_ sender: UISlider) {
+
+//        trashOutlet.maximumValue = Float(machine.trashCapacity)
+//        trashOutlet.value = Float(machine.trash)
         sender.maximumValue = Float(machine.trashCapacity)
-      sender.value = Float(machine.trash )
+        sender.value = Float(machine.trash + 35)
     }
     
     

@@ -201,6 +201,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="RY8-qt-kbv"/>
+                    <connections>
+                        <outlet property="trashOutlet" destination="LYG-iy-9VC" id="7t2-Vm-iYB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwX-rh-qg1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
