@@ -40,7 +40,7 @@ class ComponentContain : Equatable {
 }
 
 //у напитка есть имя и компоненты
-class myDrink {
+class MyDrink {
     let name: String
     var components = [ComponentContain]()
     init(name: String, components : [ComponentContain]) {
@@ -49,10 +49,27 @@ class myDrink {
     }
 }
 
+class DrinkFactory {
+    class func getAmericano() -> MyDrink {
+        let americano = MyDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 20), ComponentContain(type: .water, volume: 25)])
+        return americano
+    }
+    
+    class func getLatte() -> MyDrink {
+        let latte = MyDrink(name: "latte", components: [ComponentContain(type: .beans, volume: 30), ComponentContain(type: .milk, volume: 45)])
+        return latte
+    }
+    
+    class func getCapuchino() -> MyDrink {
+        let capuchino = MyDrink(name: "capuchino", components: [ComponentContain(type: .beans, volume: 25), ComponentContain(type: .milk, volume: 25), ComponentContain(type: .water, volume: 20)])
+        return capuchino
+    }
+}
+
 protocol CMachineProtocol {
-    func letsMakeDrink(_ drink: myDrink) -> Bool
+    func letsMakeDrink(_ drink: MyDrink) -> Bool
     func addSomeComponent(_ some: MyCoffeeComponentType) -> Bool
-    func canMakeADrink(_ drink: myDrink) -> Bool
+    func canMakeADrink(_ drink: MyDrink) -> Bool
     func hasEnoughComponentOfType(_ type: MyCoffeeComponentType) -> Bool
     func refreshTrash() -> Int
 }
@@ -96,11 +113,11 @@ class CMachine: CMachineProtocol {
                 return component.volume >= component.minvol
             }
         }
-       return false
+        return false
     }
     
     
-    func canMakeADrink(_ drink: myDrink) -> Bool {
+    func canMakeADrink(_ drink: MyDrink) -> Bool {
         for drinkComponent in drink.components {
             if let machineComponent = getComponentByType(drinkComponent.type) {
                 if machineComponent.volume < drinkComponent.volume {
@@ -119,7 +136,7 @@ class CMachine: CMachineProtocol {
     
     
     
-    func letsMakeDrink(_ drink: myDrink) -> Bool {
+    func letsMakeDrink(_ drink: MyDrink) -> Bool {
         if canMakeADrink(drink) {
             for drinkComponent in drink.components {
                 let machineComponent = getComponentByType(drinkComponent.type)

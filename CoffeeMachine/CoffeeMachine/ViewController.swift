@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     let machine = CMachine()
     
     
-    let capuchino = myDrink(name: "capuchino", components: [ComponentContain(type: .beans, volume: 25), ComponentContain(type: .milk, volume: 10), ComponentContain(type: .water, volume: 40)])
-    let americano = myDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 20), ComponentContain(type: .water, volume: 25)])
+    let americano = DrinkFactory.getAmericano()
+    let capuchino = DrinkFactory.getCapuchino()
     
     @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
