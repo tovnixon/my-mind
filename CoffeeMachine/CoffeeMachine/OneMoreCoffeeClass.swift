@@ -141,6 +141,7 @@ class CMachine: CMachineProtocol {
             for drinkComponent in drink.components {
                 let machineComponent = getComponentByType(drinkComponent.type)
                 machineComponent?.removeVolume(drinkComponent.volume)
+                print(machineComponent?.type, machineComponent?.volume)
             }
         }
         if let component = drink.components.filter({$0.type == .beans}).first {

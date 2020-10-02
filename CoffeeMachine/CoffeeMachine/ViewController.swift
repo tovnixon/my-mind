@@ -26,7 +26,8 @@ class ViewController: UIViewController {
         
     }
     @IBAction func americanoButton(_ sender: UIButton) {
-        
+        machine.letsMakeDrink(americano)
+        print(machine.getComponentByType(.water)?.volume)
         //    label.text = machine.letsMakeDrink(americano)
         //        label.text = order.makesomeDrink(drink: CoffeeMachine.Drink.americano)
     }
