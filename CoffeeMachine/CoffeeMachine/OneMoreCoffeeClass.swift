@@ -18,7 +18,7 @@ enum MyCoffeeComponentType {
 
 // у компонента есть тип и обьем
 class ComponentContain {
-    var type: MyCoffeeComponentType
+    var type : MyCoffeeComponentType
     var volume : Int
     var minvol = 20
     
@@ -62,7 +62,13 @@ class CMachine: CMachineProtocol {
     var trashCapacity = 50
     var message = ""
     
-    private func getComponentByType(_ type: MyCoffeeComponentType) -> ComponentContain? {
+    init() {
+        availableComponents.append(ComponentContain(type: .beans, volume: 100))
+        availableComponents.append(ComponentContain(type: .milk, volume: 100))
+        availableComponents.append(ComponentContain(type: .water, volume: 100))
+        
+    }
+    func getComponentByType(_ type: MyCoffeeComponentType) -> ComponentContain? {
         for component in availableComponents {
             if component.type == type {
                 return component
@@ -75,15 +81,19 @@ class CMachine: CMachineProtocol {
         let component : ComponentContain = getComponentByType(some)!
         component.addVolume(valueForAdd)
         message = "Component \(some) added"
+        
         return true
+        
     }
     
     func hasEnoughComponentOfType(_ type: ComponentContain) -> Bool {
         for components in availableComponents {
             if components.volume < type.minvol {
+                print("not enough")
                 return false
             }
         }
+        print("enough")
         return true
     }
     
@@ -97,7 +107,7 @@ class CMachine: CMachineProtocol {
                 }
             }
         }
-        if trash > trashCapacity {
+        if trash >= trashCapacity {
             message = "Refresh trash"
             return false
         }

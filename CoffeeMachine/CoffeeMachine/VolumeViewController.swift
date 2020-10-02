@@ -20,7 +20,7 @@ let machine = CMachine()
 
     @IBAction func waterSlider(_ sender: UISlider) {
         // issue with finding current value
-        sender.value = machine.availableComponents.append(ComponentContain(type: .water, volume: 100))
+//        sender.value = machine.availableComponents.append(ComponentContain(type: .water, volume: 100))
         sender.maximumValue = Float(machine.valueForAdd)
     }
     @IBAction func beansSlider(_ sender: UISlider) {

@@ -23,19 +23,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
-    let beansComponent = machine.availableComponents.append(ComponentContain(type: .beans, volume: 100))
-        machine.availableComponents.append(ComponentContain(type: .milk, volume: 100))
-        machine.availableComponents.append(ComponentContain(type: .water, volume: 100))
-        
+//        machine.availableComponents.append(ComponentContain(type: .beans, volume: 100))
+//        machine.availableComponents.append(ComponentContain(type: .milk, volume: 100))
+//        machine.availableComponents.append(ComponentContain(type: .water, volume: 100))
+//
         
     }
     @IBAction func americanoButton(_ sender: UIButton) {
-    //    label.text = machine.letsMakeDrink(americano)
+        
+        //    label.text = machine.letsMakeDrink(americano)
         //        label.text = order.makesomeDrink(drink: CoffeeMachine.Drink.americano)
     }
     
     @IBAction func capuchinoButton(_ sender: UIButton) {
- //       label.text = machine.letsMakeDrink(capuchino)
+        //       label.text = machine.letsMakeDrink(capuchino)
     }
     
     
@@ -44,12 +45,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addMilkButton(_ sender: UIButton) {
- //       label.text = machine.addSomeComponent(.milk)
+        //       label.text = machine.addSomeComponent(.milk)
         label.text = machine.message
     }
     
     @IBAction func addBeansButton(_ sender: UIButton) {
-  //      label.text = machine.addSomeComponent(.beans)
+        //      label.text = machine.addSomeComponent(.beans)
     }
     
     @IBAction func removeTrashButton(_ sender: UIButton) {
