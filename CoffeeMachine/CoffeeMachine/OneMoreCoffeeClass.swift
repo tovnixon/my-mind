@@ -17,7 +17,11 @@ enum MyCoffeeComponentType {
 }
 
 // у компонента есть тип и обьем
-class ComponentContain {
+class ComponentContain : Equatable {
+    static func == (lhs: ComponentContain, rhs: ComponentContain) -> Bool {
+        return lhs.type == rhs.type
+    }
+    
     var type : MyCoffeeComponentType
     var volume : Int
     var minvol = 20
@@ -49,7 +53,7 @@ protocol CMachineProtocol {
     func letsMakeDrink(_ drink: myDrink) -> Bool
     func addSomeComponent(_ some: MyCoffeeComponentType) -> Bool
     func canMakeADrink(_ drink: myDrink) -> Bool
-    func hasEnoughComponentOfType(_ type: ComponentContain) -> Bool
+    func hasEnoughComponentOfType(_ type: MyCoffeeComponentType) -> Bool
     func refreshTrash() -> Int
 }
 
@@ -86,15 +90,13 @@ class CMachine: CMachineProtocol {
         
     }
     
-    func hasEnoughComponentOfType(_ type: ComponentContain) -> Bool {
-        for components in availableComponents {
-            if components.volume < type.minvol {
-                print("not enough")
-                return false
+    func hasEnoughComponentOfType(_ type: MyCoffeeComponentType) -> Bool {
+        for component in availableComponents {
+            if component.type == type {
+                return component.volume >= component.minvol
             }
         }
-        print("enough")
-        return true
+       return false
     }
     
     

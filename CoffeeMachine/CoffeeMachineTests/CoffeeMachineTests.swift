@@ -11,7 +11,7 @@ import XCTest
 @testable import CoffeeMachine
 
 class CoffeeMachineTests: XCTestCase {
-    
+    let machine = CMachine()
     
     
     override func setUpWithError() throws {
@@ -23,80 +23,64 @@ class CoffeeMachineTests: XCTestCase {
     }
     
     func testTrashCapacityCanBeSetAfterCMCreated() throws {
-        //given
-        let cm = CMachine()
-        
-        //when
-        cm.trash = 10000
-        
-        //then
-        XCTAssertEqual(cm.trash, 10000, "trash is not equal to 10000")
+        machine.trash = 10000
+        XCTAssertEqual(machine.trash, 10000, "trash is not equal to 10000")
     }
     
     func testRefreshTrash() throws {
-        //given
-        let cm = CMachine()
-        cm.trash = 10
-        
-        //when
-        cm.trash = cm.refreshTrash()
-        
-        //then
-        XCTAssertEqual(cm.trash, 0, "trash is not equal to 0")
+        machine.trash = 10
+        machine.trash = machine.refreshTrash()
+        XCTAssertEqual(machine.trash, 0, "trash is not equal to 0")
     }
     
     func testAddSomeComponent() throws {
-        let cm = CMachine()
-        cm.addSomeComponent(.beans)
-        let beansMachine = cm.getComponentByType(.beans)
+        machine.addSomeComponent(.beans)
+        let beansMachine = machine.getComponentByType(.beans)
         XCTAssertEqual(beansMachine?.volume, 200, "havent any beans")
     }
     
     func testCanMakeADrinkWhenMachineComponentEnough() throws {
-        let cm = CMachine()
         let amer = myDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 30), ComponentContain(type: .water, volume: 50)])
-        let result =  cm.canMakeADrink(amer)
+        let result =  machine.canMakeADrink(amer)
         XCTAssertEqual(result, true, "Component in machine less then drink needed")
     }
     
     func testCanMakeDrinkWhenVolumeOfDrinkComponentBiggerThenComponentInMachine() throws {
-        let cm = CMachine()
         let amer = myDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 30), ComponentContain(type: .water, volume: 150)])
-        let result =  cm.canMakeADrink(amer)
+        let result =  machine.canMakeADrink(amer)
         XCTAssertEqual(result, false, "components must be not enough for preparing drink")
     }
     
     func testCanMakeADrinkWhenTrashIsFull() throws {
-        let cm = CMachine()
-        cm.trash = 50
+        machine.trash = 50
         let latte  = myDrink(name: "latte", components: [ComponentContain(type: .beans, volume: 30)])
-        let result = cm.canMakeADrink(latte)
+        let result = machine.canMakeADrink(latte)
         XCTAssertEqual(result, false, "trash must be full")
     }
     
     func testEnoughComponentOfType() throws {
-        let cm = CMachine()
-        let result = cm.hasEnoughComponentOfType(ComponentContain(type: .beans, volume: 30))
+        let result = machine.hasEnoughComponentOfType(.beans)
         XCTAssertEqual(result, true, "not enough this component")
     }
     
     func testNotEnoughComponentOfType() throws {
-        let cm = CMachine()
-       let beans = cm.availableComponents[ComponentContain(type: .beans, volume: 0)]
-        XCTAssertEqual()
+        let latte = myDrink(name: "latte", components: [ComponentContain(type: .beans, volume: 100), ComponentContain(type: .milk, volume: 45)])
+        machine.letsMakeDrink(latte)
+       let result = machine.hasEnoughComponentOfType(.beans)
+        XCTAssertEqual(result, false, "must be not enough")
     }
-    
+
     func testLetsMakeADrink() throws {
-        let cm = CMachine()
-        let latte  = myDrink(name: "latte", components: [ComponentContain(type: .beans, volume: 30), ComponentContain(type: .milk, volume: 45)])
-        let result =  cm.letsMakeDrink(latte)
+        let beans = ComponentContain(type: .beans, volume: 30)
+        let latte  = myDrink(name: "latte", components: [beans, ComponentContain(type: .milk, volume: 45)])
+        let result =  machine.letsMakeDrink(latte)
         XCTAssertEqual(result, true, "cant make a drink, there is some issue")
     }
     
     func testGetComponentByType() throws {
-        let cm = CMachine()
-        let result = cm.getComponentByType(.beans)
-        XCTAssertEqual(result, ComponentContain?.some(), "wrong type")
+        let result : ComponentContain? = machine.getComponentByType(.beans)
+        let component : ComponentContain? = ComponentContain(type: .beans, volume: 100)
+        XCTAssertEqual(result?.type, .beans, "wrong type")
     }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
