@@ -11,7 +11,7 @@ import XCTest
 @testable import CoffeeMachine
 
 class CoffeeMachineTests: XCTestCase {
-    let machine = CMachine()
+    let machine = CoffeeMachine()
     
     
     override func setUpWithError() throws {

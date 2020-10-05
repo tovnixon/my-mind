@@ -12,8 +12,9 @@ import UIKit
 class ViewController: UIViewController {
    
     
-    let machine = CMachine()
-    
+    let machine = CoffeeMachine()
+    let cm = AppState.shared.coffeeMachine
+
     
     let americano = DrinkFactory.getAmericano()
     let capuchino = DrinkFactory.getCapuchino()
@@ -26,14 +27,16 @@ class ViewController: UIViewController {
         
     }
     @IBAction func americanoButton(_ sender: UIButton) {
-        machine.letsMakeDrink(americano)
-        print(machine.getComponentByType(.water)?.volume)
-        //    label.text = machine.letsMakeDrink(americano)
-        //        label.text = order.makesomeDrink(drink: CoffeeMachine.Drink.americano)
+//        machine.letsMakeDrink(americano)
+//        print(machine.getComponentByType(.water)?.volume)
+        
+        cm.letsMakeDrink(americano)
+     
+        print("Trash \(cm.trash)")
     }
     
     @IBAction func capuchinoButton(_ sender: UIButton) {
-        //       label.text = machine.letsMakeDrink(capuchino)
+       
     }
     
     
@@ -42,12 +45,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addMilkButton(_ sender: UIButton) {
-        //       label.text = machine.addSomeComponent(.milk)
         label.text = machine.message
     }
     
     @IBAction func addBeansButton(_ sender: UIButton) {
-        //      label.text = machine.addSomeComponent(.beans)
+
     }
     
     @IBAction func removeTrashButton(_ sender: UIButton) {

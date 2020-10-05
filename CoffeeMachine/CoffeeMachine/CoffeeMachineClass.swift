@@ -74,7 +74,7 @@ protocol CMachineProtocol {
     func refreshTrash() -> Int
 }
 
-class CMachine: CMachineProtocol {
+class CoffeeMachine: CMachineProtocol {
     
     // изначально кофе машина не заполнена
     let valueForAdd : Int = 100
@@ -87,8 +87,8 @@ class CMachine: CMachineProtocol {
         availableComponents.append(ComponentContain(type: .beans, volume: 100))
         availableComponents.append(ComponentContain(type: .milk, volume: 100))
         availableComponents.append(ComponentContain(type: .water, volume: 100))
-        
     }
+    
     func getComponentByType(_ type: MyCoffeeComponentType) -> ComponentContain? {
         for component in availableComponents {
             if component.type == type {
@@ -133,8 +133,6 @@ class CMachine: CMachineProtocol {
         message = "Let`s make a drink!"
         return true
     }
-    
-    
     
     func letsMakeDrink(_ drink: MyDrink) -> Bool {
         if canMakeADrink(drink) {

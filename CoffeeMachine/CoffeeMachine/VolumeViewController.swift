@@ -9,35 +9,31 @@
 import UIKit
 
 class VolumeViewController: UIViewController {
-let machine = CMachine()
     
+    var machine = CoffeeMachine()
+    let cm = AppState.shared.coffeeMachine
+    @IBOutlet weak var waterOutlet: UISlider!
+    @IBOutlet weak var beansOutlet: UISlider!
+    @IBOutlet weak var milkOutlet: UISlider!
     @IBOutlet weak var trashOutlet: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        trashOutlet.maximumValue = Float(cm.trashCapacity)
+        trashOutlet.value = Float(cm.trash)
+        
+     //   waterOutlet.value = Float(cm.getComponentByType(.water))
+        waterOutlet.maximumValue = Float(cm.valueForAdd)
     }
     
-
-    @IBAction func waterSlider(_ sender: UISlider) {
-        // issue with finding current value
-        sender.maximumValue = Float(machine.valueForAdd)
-        let currentValue = machine.getComponentByType(.water)?.minvol
-        sender.value = Float(currentValue!)
-       
+    @IBAction func waterChanged(_ sender: UISlider) {
     }
-    @IBAction func beansSlider(_ sender: UISlider) {
-       
+    @IBAction func beansChanged(_ sender: UISlider) {
     }
-    @IBAction func milkSlider(_ sender: UISlider) {
+    @IBAction func milkChanged(_ sender: UISlider) {
     }
- 
-    @IBAction func trashSlider(_ sender: UISlider) {
-
-//        trashOutlet.maximumValue = Float(machine.trashCapacity)
-//        trashOutlet.value = Float(machine.trash)
-        sender.maximumValue = Float(machine.trashCapacity)
-        sender.value = Float(machine.trash + 35)
+    @IBAction func trashChanged(_ sender: UISlider) {
     }
     
     
