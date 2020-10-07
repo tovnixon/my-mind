@@ -20,21 +20,12 @@ class VolumeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        trashOutlet.maximumValue = Float(cm.trashCapacity)
-//        trashOutlet.value = Float(cm.trash)
-//        
-//     //   waterOutlet.value = Float(cm.getComponentByType(.water))
-//        waterOutlet.maximumValue = Float(cm.valueForAdd)
+        trashOutlet.maximumValue = Float(cm.trashCapacity)
+        trashOutlet.value = Float(cm.trash)
+        waterOutlet.maximumValue = Float(cm.valueForAdd)
+        waterOutlet.value = cm.availableComponents(
+
     }
-    
-    @IBAction func waterChanged(_ sender: UISlider) {
-    }
-    @IBAction func beansChanged(_ sender: UISlider) {
-    }
-    @IBAction func milkChanged(_ sender: UISlider) {
-    }
-    @IBAction func trashChanged(_ sender: UISlider) {
-    }
-    
+  
     
 }
