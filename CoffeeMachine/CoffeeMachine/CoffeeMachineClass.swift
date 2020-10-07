@@ -100,7 +100,8 @@ class CoffeeMachine: CMachineProtocol {
     
     func addSomeComponent(_ some: MyCoffeeComponentType) -> Bool {
         let component : ComponentContain = getComponentByType(some)!
-        component.addVolume(valueForAdd)
+             // component.addVolume(valueForAdd)
+        component.volume = valueForAdd
         message = "Component \(some) added"
         
         return true
@@ -139,7 +140,6 @@ class CoffeeMachine: CMachineProtocol {
             for drinkComponent in drink.components {
                 let machineComponent = getComponentByType(drinkComponent.type)
                 machineComponent?.removeVolume(drinkComponent.volume)
-                print(machineComponent?.type, machineComponent?.volume)
             }
         }
         if let component = drink.components.filter({$0.type == .beans}).first {
@@ -150,9 +150,9 @@ class CoffeeMachine: CMachineProtocol {
     }
     
     func refreshTrash() -> Int {
-        let value = trash - trash
-        message = "Value of trash: \(value)"
-        return value
+        trash = 0
+        message = "Value of trash: \(trash)"
+        return trash
     }
     
 }

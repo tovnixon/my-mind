@@ -23,7 +23,11 @@ class VolumeViewController: UIViewController {
         trashOutlet.maximumValue = Float(cm.trashCapacity)
         trashOutlet.value = Float(cm.trash)
         waterOutlet.maximumValue = Float(cm.valueForAdd)
-        waterOutlet.value = cm.availableComponents(
+        waterOutlet.value = Float(cm.getComponentByType(.water)!.volume)
+        beansOutlet.maximumValue = Float(cm.valueForAdd)
+        beansOutlet.value = Float(cm.getComponentByType(.beans)!.volume)
+        milkOutlet.maximumValue = Float(cm.valueForAdd)
+        milkOutlet.value = Float(cm.getComponentByType(.milk)!.volume)
 
     }
   

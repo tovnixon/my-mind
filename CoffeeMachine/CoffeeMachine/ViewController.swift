@@ -27,33 +27,40 @@ class ViewController: UIViewController {
         
     }
     @IBAction func americanoButton(_ sender: UIButton) {
-//        machine.letsMakeDrink(americano)
-//        print(machine.getComponentByType(.water)?.volume)
-        
-        cm.letsMakeDrink(americano)
-     
-        print("Trash \(cm.trash)")
+        if cm.canMakeADrink(americano) {
+            cm.letsMakeDrink(americano)
+            label.text = cm.message
+        }
+        label.text = cm.message
     }
     
     @IBAction func capuchinoButton(_ sender: UIButton) {
-       
+        if cm.canMakeADrink(capuchino) {
+            cm.letsMakeDrink(capuchino)
+            label.text = cm.message
+        }
+        label.text = cm.message
     }
     
     
     @IBAction func addWaterButton(_ sender: UIButton) {
-        label.text = machine.message
+        cm.addSomeComponent(.water)
+        label.text = cm.message
     }
     
     @IBAction func addMilkButton(_ sender: UIButton) {
-        label.text = machine.message
+        cm.addSomeComponent(.milk)
+        label.text = cm.message
     }
     
     @IBAction func addBeansButton(_ sender: UIButton) {
-
+        cm.addSomeComponent(.beans)
+        label.text = cm.message
     }
     
     @IBAction func removeTrashButton(_ sender: UIButton) {
-        label.text = machine.message
+        cm.refreshTrash()
+        label.text = cm.message
     }
     
     @IBAction func showVolumeButton(_ sender: UIButton) {
