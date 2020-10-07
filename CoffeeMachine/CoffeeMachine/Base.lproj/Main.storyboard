@@ -134,21 +134,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="IuH-ML-Apc">
                                 <rect key="frame" x="50" y="81" width="200.5" height="240"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="PcM-20-STi">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PcM-20-STi">
                                         <rect key="frame" x="0.0" y="0.0" width="200.5" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91k-RW-aPL">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="4.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0iT-YX-hOx">
-                                                <rect key="frame" x="58" y="0.0" width="144.5" height="31"/>
+                                                <rect key="frame" x="22.5" y="0.0" width="180" height="31"/>
                                             </slider>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="XCa-3D-q9J">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XCa-3D-q9J">
                                         <rect key="frame" x="0.0" y="70" width="200.5" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzR-La-yvE">
@@ -158,11 +158,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="N48-fk-8by">
-                                                <rect key="frame" x="38" y="0.0" width="164.5" height="31"/>
+                                                <rect key="frame" x="18" y="0.0" width="184.5" height="31"/>
                                             </slider>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFJ-fR-yby">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="aFJ-fR-yby">
                                         <rect key="frame" x="0.0" y="140" width="200.5" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8q-KF-Vhf">
@@ -172,11 +172,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="oaM-Te-BeB">
-                                                <rect key="frame" x="-2" y="0.0" width="204.5" height="31"/>
+                                                <rect key="frame" x="18" y="0.0" width="184.5" height="31"/>
                                             </slider>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWW-4F-vXa">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gWW-4F-vXa">
                                         <rect key="frame" x="0.0" y="210" width="200.5" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7m-o4-gwY">
@@ -186,11 +186,19 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XaS-Cc-Nm1">
-                                                <rect key="frame" x="-2" y="0.0" width="204.5" height="31"/>
+                                                <rect key="frame" x="18" y="0.0" width="184.5" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="180.5" id="67q-Fc-98P"/>
+                                                </constraints>
                                             </slider>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="N48-fk-8by" firstAttribute="width" secondItem="XaS-Cc-Nm1" secondAttribute="width" id="Jcf-US-pKc"/>
+                                    <constraint firstItem="0iT-YX-hOx" firstAttribute="width" secondItem="XaS-Cc-Nm1" secondAttribute="width" multiplier="0.975069" id="PsQ-SJ-MTv"/>
+                                    <constraint firstItem="oaM-Te-BeB" firstAttribute="width" secondItem="XaS-Cc-Nm1" secondAttribute="width" id="Trr-Mx-dUs"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9OD-HB-7II"/>
