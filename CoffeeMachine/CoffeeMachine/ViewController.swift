@@ -32,6 +32,7 @@ class ViewController: UIViewController {
             label.text = cm.message
         }
         label.text = cm.message
+        sender.isEnabled = false
     }
     
     @IBAction func capuchinoButton(_ sender: UIButton) {
@@ -40,6 +41,7 @@ class ViewController: UIViewController {
             label.text = cm.message
         }
         label.text = cm.message
+        sender.isEnabled = false
     }
     
     
