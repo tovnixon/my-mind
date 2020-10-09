@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="gCX-Q6-4pl">
             <objects>
-                <viewController id="yvH-JN-6Hg" sceneMemberID="viewController">
+                <viewController id="yvH-JN-6Hg" customClass="SecondViewController" customModule="CoffeeMachine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w8X-9s-Hr0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,55 +24,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rM6-rq-lqd">
-                                <rect key="frame" x="20" y="350" width="128" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
-                                <state key="normal" title="Add water">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eU-Gx-Cjn">
-                                <rect key="frame" x="266" y="350" width="128" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
-                                <state key="normal" title="Add beans">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFu-vD-LCC">
-                                <rect key="frame" x="20" y="408" width="128" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
-                                <state key="normal" title="Add milk">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5T4-cC-cMl">
-                                <rect key="frame" x="266" y="408" width="128" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
-                                <state key="normal" title="Clear trash">
-                                    <color key="titleColor" systemColor="labelColor"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuI-sR-4XZ" customClass="RoundButton" customModule="CoffeeMachine" customModuleProvider="target">
-                                <rect key="frame" x="28" y="494" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuI-sR-4XZ" customClass="RoundButton" customModule="CoffeeMachine" customModuleProvider="target">
+                                <rect key="frame" x="28" y="494" width="100" height="97"/>
                                 <color key="backgroundColor" red="0.81440482655228308" green="0.81492467250799239" blue="0.97071303934010156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fuI-sR-4XZ" secondAttribute="height" multiplier="100:97" id="1GI-LS-dNA"/>
+                                    <constraint firstAttribute="height" constant="97" id="kea-e0-jpX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
                                 <state key="normal" title="Americano">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="50"/>
+                                        <integer key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="americanoButton:" destination="yvH-JN-6Hg" eventType="touchUpInside" id="UjB-Jc-wvA"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTK-Nw-yPa" customClass="RoundButton" customModule="CoffeeMachine" customModuleProvider="target">
-                                <rect key="frame" x="294" y="494" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTK-Nw-yPa" customClass="RoundButton" customModule="CoffeeMachine" customModuleProvider="target">
+                                <rect key="frame" x="294" y="494" width="100" height="97"/>
                                 <color key="backgroundColor" red="0.81440482660000002" green="0.8149246725" blue="0.97071303929999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
                                 <state key="normal" title="Latte">
@@ -83,10 +56,12 @@
                                         <real key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="latteButton:" destination="yvH-JN-6Hg" eventType="touchUpInside" id="cCM-HN-eQa"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTh-pq-6qS" customClass="RoundButton" customModule="CoffeeMachine" customModuleProvider="target">
-                                <rect key="frame" x="157" y="494" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTh-pq-6qS" customClass="RoundButton" customModule="CoffeeMachine" customModuleProvider="target">
+                                <rect key="frame" x="157" y="494" width="100" height="97"/>
                                 <color key="backgroundColor" red="0.81440482660000002" green="0.8149246725" blue="0.97071303929999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
                                 <state key="normal" title="Capuchino">
@@ -97,11 +72,17 @@
                                         <real key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="capuchinoButton:" destination="yvH-JN-6Hg" eventType="touchUpInside" id="min-i3-1Jn"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xz-Xi-qkX" customClass="RoundButton" customModule="CoffeeMachine" customModuleProvider="target">
-                                <rect key="frame" x="88" y="602" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xz-Xi-qkX" customClass="RoundButton" customModule="CoffeeMachine" customModuleProvider="target">
+                                <rect key="frame" x="88" y="602" width="93" height="100"/>
                                 <color key="backgroundColor" red="0.81440482660000002" green="0.8149246725" blue="0.97071303929999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Wuq-gm-a2g"/>
+                                    <constraint firstAttribute="width" secondItem="2Xz-Xi-qkX" secondAttribute="height" multiplier="93:100" id="bMc-3T-06M"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
                                 <state key="normal" title="Flat White">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -111,13 +92,15 @@
                                         <real key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="flatWhiteButton:" destination="yvH-JN-6Hg" eventType="touchUpInside" id="can-Oh-r3E"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWs-bw-c7G" customClass="RoundButton" customModule="CoffeeMachine" customModuleProvider="target">
-                                <rect key="frame" x="227" y="602" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWs-bw-c7G" customClass="RoundButton" customModule="CoffeeMachine" customModuleProvider="target">
+                                <rect key="frame" x="233" y="602" width="94" height="100"/>
                                 <color key="backgroundColor" red="0.81440482660000002" green="0.8149246725" blue="0.97071303929999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
-                                <state key="normal" title="gertg">
+                                <state key="normal" title="Warm Milk">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -125,12 +108,15 @@
                                         <real key="value" value="50"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="warmMilkButton:" destination="yvH-JN-6Hg" eventType="touchUpInside" id="Pfr-Xu-5yh"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rxf-XW-U6R">
-                                <rect key="frame" x="20" y="113" width="414" height="120"/>
+                                <rect key="frame" x="20" y="113" width="374" height="120"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6gj-cS-iKa">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rlc-nV-rfc">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
@@ -142,49 +128,53 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pwx-ZU-Wzz">
-                                                <rect key="frame" x="68" y="0.0" width="348" height="31"/>
+                                                <rect key="frame" x="68" y="0.0" width="308" height="31"/>
+                                                <color key="tintColor" red="0.77517133949999995" green="0.69181537630000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </slider>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6qu-kq-pEF">
-                                        <rect key="frame" x="0.0" y="30" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="374" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GG1-yL-4yy">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GG1-yL-4yy">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Pgx-cg-Bft">
-                                                <rect key="frame" x="68" y="0.0" width="348" height="31"/>
+                                                <rect key="frame" x="68" y="0.0" width="308" height="31"/>
+                                                <color key="tintColor" red="0.77517133949999995" green="0.69181537630000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </slider>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VaO-WV-bgG">
-                                        <rect key="frame" x="0.0" y="60" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="60" width="374" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSm-W4-Iip">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSm-W4-Iip">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iIn-PC-yeo">
-                                                <rect key="frame" x="68" y="0.0" width="348" height="31"/>
+                                                <rect key="frame" x="68" y="0.0" width="308" height="31"/>
+                                                <color key="tintColor" red="0.77517133949999995" green="0.69181537630000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </slider>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Sfi-He-rqx">
-                                        <rect key="frame" x="0.0" y="90" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="90" width="374" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m02-DN-da7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m02-DN-da7">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iHn-hF-rj6">
-                                                <rect key="frame" x="68" y="0.0" width="348" height="31"/>
+                                                <rect key="frame" x="68" y="0.0" width="308" height="31"/>
+                                                <color key="tintColor" red="0.77517133949999995" green="0.69181537630000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -195,20 +185,102 @@
                                     <constraint firstItem="XSm-W4-Iip" firstAttribute="width" secondItem="Rlc-nV-rfc" secondAttribute="width" id="nqv-P9-YG9"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="Kyt-jY-x0Q">
+                                <rect key="frame" x="50" y="263" width="89" height="116"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rM6-rq-lqd">
+                                        <rect key="frame" x="0.0" y="0.0" width="89" height="29"/>
+                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
+                                        <state key="normal" title="Add water">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addWaterButton:" destination="yvH-JN-6Hg" eventType="touchUpInside" id="ejg-Ja-SKC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFu-vD-LCC">
+                                        <rect key="frame" x="0.0" y="87" width="89" height="29"/>
+                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
+                                        <state key="normal" title="Add milk">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addMilkButton:" destination="yvH-JN-6Hg" eventType="touchUpInside" id="QSO-58-rtH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="xmD-FN-mwF">
+                                <rect key="frame" x="269" y="263" width="95" height="116"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eU-Gx-Cjn">
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="29"/>
+                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
+                                        <state key="normal" title="Add beans">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addBeansButton:" destination="yvH-JN-6Hg" eventType="touchUpInside" id="oa9-z6-X3U"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5T4-cC-cMl">
+                                        <rect key="frame" x="0.0" y="87" width="95" height="29"/>
+                                        <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
+                                        <state key="normal" title="Clear trash">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cleanTrashButton:" destination="yvH-JN-6Hg" eventType="touchUpInside" id="pRM-kL-d2I"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="E3P-jY-des"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstItem="JWs-bw-c7G" firstAttribute="leading" secondItem="2Xz-Xi-qkX" secondAttribute="trailing" constant="52" id="17U-wy-vX3"/>
+                            <constraint firstItem="JWs-bw-c7G" firstAttribute="height" secondItem="2Xz-Xi-qkX" secondAttribute="height" id="2EJ-do-rOK"/>
+                            <constraint firstItem="fuI-sR-4XZ" firstAttribute="top" secondItem="Kyt-jY-x0Q" secondAttribute="bottom" constant="115" id="3bK-gk-yat"/>
+                            <constraint firstItem="Kyt-jY-x0Q" firstAttribute="leading" secondItem="E3P-jY-des" secondAttribute="leading" constant="50" id="7ae-bq-UoB"/>
+                            <constraint firstItem="gTh-pq-6qS" firstAttribute="top" secondItem="fuI-sR-4XZ" secondAttribute="top" id="7xF-Ff-5AT"/>
                             <constraint firstItem="hUG-c3-Iod" firstAttribute="leading" secondItem="E3P-jY-des" secondAttribute="leading" constant="20" id="8iC-b8-5lK"/>
+                            <constraint firstItem="E3P-jY-des" firstAttribute="trailing" secondItem="zTK-Nw-yPa" secondAttribute="trailing" constant="20" id="9nI-uB-Bjt"/>
                             <constraint firstItem="Rxf-XW-U6R" firstAttribute="top" secondItem="hUG-c3-Iod" secondAttribute="bottom" constant="31" id="BEo-MW-HJb"/>
                             <constraint firstItem="hUG-c3-Iod" firstAttribute="top" secondItem="E3P-jY-des" secondAttribute="top" constant="21" id="Cii-rG-3GI"/>
-                            <constraint firstItem="E3P-jY-des" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Rxf-XW-U6R" secondAttribute="bottom" constant="20" id="HMv-hH-v1z"/>
-                            <constraint firstItem="E3P-jY-des" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hUG-c3-Iod" secondAttribute="bottom" constant="20" id="Lvg-sO-7jl"/>
-                            <constraint firstItem="Rxf-XW-U6R" firstAttribute="trailing" secondItem="E3P-jY-des" secondAttribute="trailing" constant="20" id="hAT-FI-1F4"/>
+                            <constraint firstItem="xmD-FN-mwF" firstAttribute="top" secondItem="Kyt-jY-x0Q" secondAttribute="top" id="DJk-Ly-ZOB"/>
+                            <constraint firstItem="gTh-pq-6qS" firstAttribute="width" secondItem="fuI-sR-4XZ" secondAttribute="width" id="Fuj-7G-Xpw"/>
+                            <constraint firstItem="zTK-Nw-yPa" firstAttribute="height" secondItem="gTh-pq-6qS" secondAttribute="height" id="Hha-gd-Qah"/>
+                            <constraint firstItem="JWs-bw-c7G" firstAttribute="top" secondItem="2Xz-Xi-qkX" secondAttribute="top" id="IqI-ks-MVs"/>
+                            <constraint firstItem="gTh-pq-6qS" firstAttribute="height" secondItem="fuI-sR-4XZ" secondAttribute="height" id="KC4-gB-14K"/>
+                            <constraint firstItem="zTK-Nw-yPa" firstAttribute="leading" secondItem="gTh-pq-6qS" secondAttribute="trailing" constant="37" id="NIT-Y4-7js"/>
+                            <constraint firstItem="2Xz-Xi-qkX" firstAttribute="top" secondItem="fuI-sR-4XZ" secondAttribute="bottom" constant="11" id="Naf-5V-Hyn"/>
+                            <constraint firstItem="E3P-jY-des" firstAttribute="trailing" secondItem="xmD-FN-mwF" secondAttribute="trailing" constant="50" id="PHF-5P-yNk"/>
+                            <constraint firstItem="2Xz-Xi-qkX" firstAttribute="leading" secondItem="E3P-jY-des" secondAttribute="leading" constant="88" id="V1g-Wy-4XF"/>
+                            <constraint firstItem="E3P-jY-des" firstAttribute="trailing" secondItem="Rxf-XW-U6R" secondAttribute="trailing" constant="20" id="YOQ-4G-lZW"/>
+                            <constraint firstItem="Kyt-jY-x0Q" firstAttribute="top" secondItem="Rxf-XW-U6R" secondAttribute="bottom" constant="30" id="fsX-Uy-82y"/>
                             <constraint firstItem="E3P-jY-des" firstAttribute="trailing" secondItem="hUG-c3-Iod" secondAttribute="trailing" constant="20" id="kgn-BE-oeh"/>
                             <constraint firstItem="Rxf-XW-U6R" firstAttribute="leading" secondItem="E3P-jY-des" secondAttribute="leading" constant="20" id="kiK-oX-iEl"/>
+                            <constraint firstItem="xmD-FN-mwF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Kyt-jY-x0Q" secondAttribute="trailing" constant="93" id="l6i-Bi-2xj"/>
+                            <constraint firstItem="zTK-Nw-yPa" firstAttribute="width" secondItem="gTh-pq-6qS" secondAttribute="width" id="lAn-kh-FfK"/>
+                            <constraint firstItem="fuI-sR-4XZ" firstAttribute="leading" secondItem="E3P-jY-des" secondAttribute="leading" constant="28" id="mbB-5f-vTg"/>
+                            <constraint firstItem="E3P-jY-des" firstAttribute="trailing" secondItem="JWs-bw-c7G" secondAttribute="trailing" constant="87" id="mhU-8n-HmG"/>
+                            <constraint firstItem="gTh-pq-6qS" firstAttribute="leading" secondItem="fuI-sR-4XZ" secondAttribute="trailing" constant="29" id="olV-qn-7Mf"/>
+                            <constraint firstItem="Rxf-XW-U6R" firstAttribute="top" secondItem="hUG-c3-Iod" secondAttribute="bottom" constant="31" id="ymB-o9-5D9"/>
+                            <constraint firstItem="zTK-Nw-yPa" firstAttribute="top" secondItem="fuI-sR-4XZ" secondAttribute="top" id="zdI-V9-vxq"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mbB-5f-vTg"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="beansOutlet" destination="iIn-PC-yeo" id="NhJ-K0-4Gb"/>
+                        <outlet property="milkOutlet" destination="Pgx-cg-Bft" id="qGv-HE-awa"/>
+                        <outlet property="trashOutlet" destination="iHn-hF-rj6" id="EyK-eW-l00"/>
+                        <outlet property="waterOutlet" destination="pwx-ZU-Wzz" id="WS9-LV-KXe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Rf-G1-m36" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -438,7 +510,7 @@
             <size key="intrinsicContentSize" width="87" height="29"/>
         </designable>
         <designable name="JWs-bw-c7G">
-            <size key="intrinsicContentSize" width="47" height="29"/>
+            <size key="intrinsicContentSize" width="94" height="29"/>
         </designable>
         <designable name="fuI-sR-4XZ">
             <size key="intrinsicContentSize" width="94" height="29"/>

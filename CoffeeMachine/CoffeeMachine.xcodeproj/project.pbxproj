@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CA3073D7252F20670015CEB5 /* RoundButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3073D6252F20670015CEB5 /* RoundButtonClass.swift */; };
+		CA3073DB252F4E2B0015CEB5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3073DA252F4E2B0015CEB5 /* SecondViewController.swift */; };
 		CA5D1D1325001715000B4EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5D1D1225001715000B4EB3 /* AppDelegate.swift */; };
 		CA5D1D1525001715000B4EB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5D1D1425001715000B4EB3 /* SceneDelegate.swift */; };
 		CA5D1D1725001715000B4EB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5D1D1625001715000B4EB3 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		CA3073D6252F20670015CEB5 /* RoundButtonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonClass.swift; sourceTree = "<group>"; };
+		CA3073DA252F4E2B0015CEB5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		CA5D1D0F25001715000B4EB3 /* CoffeeMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA5D1D1225001715000B4EB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA5D1D1425001715000B4EB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				CAFDC2B42524984E00E21521 /* VolumeViewController.swift */,
 				CA6DE02B252AF0C8009970EB /* GlobalClass.swift */,
 				CA3073D6252F20670015CEB5 /* RoundButtonClass.swift */,
+				CA3073DA252F4E2B0015CEB5 /* SecondViewController.swift */,
 				CA5D1D1825001715000B4EB3 /* Main.storyboard */,
 				CA5D1D1B2500171E000B4EB3 /* Assets.xcassets */,
 				CA5D1D1D2500171E000B4EB3 /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3073DB252F4E2B0015CEB5 /* SecondViewController.swift in Sources */,
 				CA5D1D1725001715000B4EB3 /* ViewController.swift in Sources */,
 				CA5D1D1325001715000B4EB3 /* AppDelegate.swift in Sources */,
 				CAFDC2B52524984E00E21521 /* VolumeViewController.swift in Sources */,
