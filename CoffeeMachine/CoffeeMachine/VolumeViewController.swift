@@ -19,17 +19,25 @@ class VolumeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //set up sliders
+        // 2var setup initial values min max, & update value for slider
+        setupMinMaxValueOfComponent(waterOutlet, .water)
+        setupMinMaxValueOfComponent(milkOutlet, .milk)
+        setupMinMaxValueOfComponent(beansOutlet, .beans)
+        updateValueOfComponent(waterOutlet, .water)
+        
+        
         trashOutlet.maximumValue = Float(cm.trashCapacity)
         trashOutlet.value = Float(cm.trash)
-        waterOutlet.maximumValue = Float(cm.valueForAdd)
-        waterOutlet.value = Float(cm.getComponentByType(.water)!.volume)
-        beansOutlet.maximumValue = Float(cm.valueForAdd)
-        beansOutlet.value = Float(cm.getComponentByType(.beans)!.volume)
-        milkOutlet.maximumValue = Float(cm.valueForAdd)
-        milkOutlet.value = Float(cm.getComponentByType(.milk)!.volume)
-
     }
   
+    func setupMinMaxValueOfComponent(_ slider: UISlider!, _ type: MyCoffeeComponentType){
+        slider.maximumValue = Float(cm.valueForAdd)
+        slider.minimumValue = Float(cm.getComponentByType(type)!.minvol)
+    }
+    
+    func updateValueOfComponent(_ slider: UISlider!, _ type: MyCoffeeComponentType) {
+        slider.value = Float(cm.getComponentByType(type)!.volume)
+    }
     
 }

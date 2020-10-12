@@ -36,24 +36,24 @@ class CoffeeMachineTests: XCTestCase {
     func testAddSomeComponent() throws {
         machine.addSomeComponent(.beans)
         let beansMachine = machine.getComponentByType(.beans)
-        XCTAssertEqual(beansMachine?.volume, 200, "havent any beans")
+        XCTAssertEqual(beansMachine?.volume, 100, "havent any beans")
     }
     
     func testCanMakeADrinkWhenMachineComponentEnough() throws {
-        let amer = myDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 30), ComponentContain(type: .water, volume: 50)])
+        let amer = MyDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 30), ComponentContain(type: .water, volume: 50)])
         let result =  machine.canMakeADrink(amer)
         XCTAssertEqual(result, true, "Component in machine less then drink needed")
     }
     
     func testCanMakeDrinkWhenVolumeOfDrinkComponentBiggerThenComponentInMachine() throws {
-        let amer = myDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 30), ComponentContain(type: .water, volume: 150)])
+        let amer = MyDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 30), ComponentContain(type: .water, volume: 150)])
         let result =  machine.canMakeADrink(amer)
         XCTAssertEqual(result, false, "components must be not enough for preparing drink")
     }
     
     func testCanMakeADrinkWhenTrashIsFull() throws {
         machine.trash = 50
-        let latte  = myDrink(name: "latte", components: [ComponentContain(type: .beans, volume: 30)])
+        let latte  = MyDrink(name: "latte", components: [ComponentContain(type: .beans, volume: 30)])
         let result = machine.canMakeADrink(latte)
         XCTAssertEqual(result, false, "trash must be full")
     }
@@ -64,7 +64,7 @@ class CoffeeMachineTests: XCTestCase {
     }
     
     func testNotEnoughComponentOfType() throws {
-        let latte = myDrink(name: "latte", components: [ComponentContain(type: .beans, volume: 100), ComponentContain(type: .milk, volume: 45)])
+        let latte = MyDrink(name: "latte", components: [ComponentContain(type: .beans, volume: 100), ComponentContain(type: .milk, volume: 45)])
         machine.letsMakeDrink(latte)
        let result = machine.hasEnoughComponentOfType(.beans)
         XCTAssertEqual(result, false, "must be not enough")
@@ -72,7 +72,7 @@ class CoffeeMachineTests: XCTestCase {
 
     func testLetsMakeADrink() throws {
         let beans = ComponentContain(type: .beans, volume: 30)
-        let latte  = myDrink(name: "latte", components: [beans, ComponentContain(type: .milk, volume: 45)])
+        let latte  = MyDrink(name: "latte", components: [beans, ComponentContain(type: .milk, volume: 45)])
         let result =  machine.letsMakeDrink(latte)
         XCTAssertEqual(result, true, "cant make a drink, there is some issue")
     }
@@ -82,11 +82,18 @@ class CoffeeMachineTests: XCTestCase {
         let component : ComponentContain? = ComponentContain(type: .beans, volume: 100)
         XCTAssertEqual(result?.type, .beans, "wrong type")
     }
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testDrinkFactoryGetAmericano() throws {
+        let result = DrinkFactory.getAmericano()
+        let americano = MyDrink(name: "americano", components: [ComponentContain(type: .beans, volume: 20), ComponentContain(type: .water, volume: 25)])
+        XCTAssertEqual(result.components, americano.components, "wrong components")
     }
+    
+    func testDrinkFactoryGetCapuchino() throws {
+        let result = DrinkFactory.getCapuchino()
+        let capuchino = MyDrink(name: "capuchino", components: [ComponentContain(type: .beans, volume: 25), ComponentContain(type: .milk, volume: 25), ComponentContain(type: .water, volume: 20)])
+        XCTAssertEqual(result.components, capuchino.components, "wrong components")
+    }
+    
     
 }

@@ -11,6 +11,7 @@ import UIKit
 
 class ViewController: UIViewController {
    
+    @IBOutlet weak var makeAmericano: UIButton!
     
     let machine = CoffeeMachine()
     let cm = AppState.shared.coffeeMachine
@@ -22,11 +23,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        makeAmericano.addTarget(self, action: #selector(americanoButton(_:)), for: UIControl.Event.touchUpInside)
         
     }
-    @IBAction func americanoButton(_ sender: UIButton) {
+   @objc func americanoButton(_ sender: UIButton) {
         if cm.canMakeADrink(americano) {
             cm.letsMakeDrink(americano)
             label.text = cm.message
