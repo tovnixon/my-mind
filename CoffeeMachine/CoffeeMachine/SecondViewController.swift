@@ -9,8 +9,8 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
-  
+    
+    
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var waterOutlet: UISlider!
     @IBOutlet weak var milkOutlet: UISlider!
@@ -39,123 +39,94 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupMinMaxValueOfComponent(waterOutlet, .water)
-        setupMinMaxValueOfComponent(milkOutlet, .milk)
-        setupMinMaxValueOfComponent(beansOutlet, .beans)
+        
+        setupMinMaxValueOfComponent(.water, for: waterOutlet)
+        setupMinMaxValueOfComponent(.milk, for: milkOutlet)
+        setupMinMaxValueOfComponent(.beans, for: beansOutlet)
         trashOutlet.maximumValue = Float(cm.trashCapacity)
         
         reloadValues()
         
     }
     
-    func setupMinMaxValueOfComponent(_ slider: UISlider!, _ type: MyCoffeeComponentType){
+    @IBAction func addWaterButton(_ sender: UIButton) {
+        addComponent(type: .water)
+    }
+    @IBAction func addMilkButton(_ sender: UIButton) {
+        addComponent(type: .milk)
+    }
+    @IBAction func addBeansButton(_ sender: UIButton) {
+        addComponent(type: .beans)
+    }
+    @IBAction func cleanTrashButton(_ sender: UIButton) {
+        _ = cm.refreshTrash()
+        label.text = cm.message
+        reloadValues()
+        enabled()
+    }
+    
+    @IBAction func americanoButton(_ sender: UIButton) {
+        makeDrink(americano, from: sender)
+    }
+    
+    @IBAction func capuchinoButton(_ sender: UIButton) {
+        makeDrink(capuchino, from: sender)
+    }
+    
+    @IBAction func latteButton(_ sender: UIButton) {
+        makeDrink(latte, from: sender)
+    }
+    
+    @IBAction func flatWhiteButton(_ sender: UIButton) {
+        makeDrink(flatWhite, from: sender)
+    }
+    
+    @IBAction func warmMilkButton(_ sender: UIButton) {
+        makeDrink(warmMilk, from: sender)
+    }
+    
+}
+
+private extension SecondViewController {
+    func setupMinMaxValueOfComponent(_ type: MyCoffeeComponentType, for slider: UISlider){
         slider.maximumValue = Float(cm.valueForAdd)
         slider.minimumValue = Float(cm.getComponentByType(type)!.minvol)
     }
-
-    func updateValueOfComponent(_ slider: UISlider!, _ type: MyCoffeeComponentType) {
+    
+    func updateValueOfComponent(_ type: MyCoffeeComponentType, for slider: UISlider) {
         slider.value = Float(cm.getComponentByType(type)!.volume)
     }
     
     func reloadValues(){
-        updateValueOfComponent(waterOutlet, .water)
-        updateValueOfComponent(milkOutlet, .milk)
-        updateValueOfComponent(beansOutlet, .beans)
+        updateValueOfComponent(.water, for: waterOutlet)
+        updateValueOfComponent(.milk, for: milkOutlet)
+        updateValueOfComponent(.beans, for: beansOutlet)
         trashOutlet.value = Float(cm.trash)
     }
     
     func enabled(){
         let drinks = [makeAmericano, makeCapuchino, makeLatte, makeFlatWhite, makeWarmMilk]
         for drink in drinks {
-            if drink?.isEnabled == false && drink?.isHidden == true {
+            if drink?.isEnabled == false{
                 drink?.isEnabled = true
-                drink?.isHidden = false
             }
         }
     }
-    @IBAction func addWaterButton(_ sender: UIButton) {
-        cm.addSomeComponent(.water)
-        label.text = cm.message
-        reloadValues()
-        enabled()
-    }
-    @IBAction func addMilkButton(_ sender: UIButton) {
-        cm.addSomeComponent(.milk)
+    
+    func addComponent(type: MyCoffeeComponentType){
+        _ = cm.addSomeComponent(type)
         label.text = cm.message
         reloadValues()
         enabled()
     }
     
-    @IBAction func addBeansButton(_ sender: UIButton) {
-        cm.addSomeComponent(.beans)
-        label.text = cm.message
-        reloadValues()
-        enabled()
-    }
-    @IBAction func cleanTrashButton(_ sender: UIButton) {
-        cm.refreshTrash()
-        label.text = cm.message
-        reloadValues()
-        enabled()
-    }
-    @IBAction func americanoButton(_ sender: UIButton) {
-     
-        if cm.canMakeADrink(americano) {
-            cm.letsMakeDrink(americano)
+    func makeDrink(_ drink: MyDrink, from button: UIButton) {
+        if cm.canMakeADrink(drink) {
+            _ = cm.letsMakeDrink(drink)
             label.text = cm.message
         } else {
             label.text = cm.message
-            makeAmericano.isEnabled = false
-            makeAmericano.isHidden = true
-        }
-        reloadValues()
-    }
-    
-    @IBAction func capuchinoButton(_ sender: UIButton) {
-        if cm.canMakeADrink(capuchino) {
-            cm.letsMakeDrink(capuchino)
-            label.text = cm.message
-        } else {
-            label.text = cm.message
-            makeCapuchino.isEnabled = false
-            makeCapuchino.isHidden = true
-        }
-        reloadValues()
-    }
-    
-    @IBAction func latteButton(_ sender: UIButton) {
-        if cm.canMakeADrink(latte) {
-            cm.letsMakeDrink(latte)
-            label.text = cm.message
-        } else {
-            label.text = cm.message
-            makeLatte.isEnabled = false
-            makeLatte.isHidden = true
-        }
-        reloadValues()
-    }
-    
-    @IBAction func flatWhiteButton(_ sender: UIButton) {
-        if cm.canMakeADrink(flatWhite) {
-            cm.letsMakeDrink(flatWhite)
-            label.text = cm.message
-        } else {
-            label.text = cm.message
-            makeFlatWhite.isEnabled = false
-            makeFlatWhite.isHidden = true
-        }
-        reloadValues()
-    }
-    
-    @IBAction func warmMilkButton(_ sender: UIButton) {
-        if cm.canMakeADrink(warmMilk) {
-            cm.letsMakeDrink(warmMilk)
-            label.text = cm.message
-        } else {
-            label.text = cm.message
-            makeWarmMilk.isEnabled = false
-            makeWarmMilk.isHidden = true
+            button.isEnabled = false
         }
         reloadValues()
     }
