@@ -122,6 +122,10 @@ private extension SecondViewController {
     
     func makeDrink(_ drink: MyDrink, from button: UIButton) {
         if cm.canMakeADrink(drink) {
+            let alert = UIAlertController(title: "\(drink.name)", message: "Click YES to take your drink", preferredStyle: UIAlertController.Style.alert)
+            let yesButton = UIAlertAction(title: "YES", style: UIAlertAction.Style.default, handler: nil)
+            alert.addAction(yesButton)
+            self.present(alert, animated: true, completion: nil)
             _ = cm.letsMakeDrink(drink)
             label.text = cm.message
         } else {
