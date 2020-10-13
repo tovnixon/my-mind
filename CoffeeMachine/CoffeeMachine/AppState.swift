@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 class AppState {
     static let shared = AppState()
     var coffeeMachine : CoffeeMachine
@@ -18,5 +16,3 @@ class AppState {
         coffeeMachine = CoffeeMachine()
     }
 }
-
-let myMachine = AppState.shared.coffeeMachine
